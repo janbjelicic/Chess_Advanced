@@ -1,0 +1,31 @@
+﻿@model PagedList.IPagedList <Chess.Domain.Entities.Match>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = Resources.FamousGames;
+}
+
+@if (Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+{
+    <p>
+        @Html.ActionLink(Resources.CreateNewMatch, "Create", new { }, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+}
+
+@foreach (var match in Model)
+{
+    <p>
+        @Html.ActionLink(match.Description, "ViewMatch", "Match", new { id = match.ID }, null)
+        @if (Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+        {
+            <a href='@Url.Action("Edit", "Match", new { id = match.ID })'>
+                <img class="match-image" alt="edit" src="~/Images/Buttons/edit.png" />
+            </a>
+            <a href='@Url.Action("Delete", "Match", new { id = match.ID })'>
+                <img class="match-image" alt="delete" src="~/Images/Buttons/delete.png" />
+            </a>
+        }
+    </p>    
+}
+<hr/>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

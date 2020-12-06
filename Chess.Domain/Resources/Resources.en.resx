@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>My name is Jan Bjeličić and this is my project for the masters degree thesis in software engineering and informational systems for the Faculty of electrical
+        engineering and computing in Zagreb. I come from a small town Križevci in the northwest of Croatia where I finished my primary
+        and secondary school. The love for programming begun when I enrolled on the university and shortly afterwards I started to create various
+        web and mobile applications and also solve algorithmic problems. The reason I started building a chess website is my second greatest love
+        after programming and that is chess. I have a title of candidate master and I have attended a few professional games in my younger days.
+        Nowadays is all about programming, but then again I wanted to honour the part of my life where I was thoroughly focused on chess by building
+        this website. Hope you enjoy your stay, cheers.</value>
+  </data>
+  <data name="AddMatches" xml:space="preserve">
+    <value>Add Matches</value>
+  </data>
+  <data name="AddProblems" xml:space="preserve">
+    <value>Add Problems</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AlekhineCites" xml:space="preserve">
+    <value>Playing on complications is an extreme measure that every player has to take only if he can't find a safe and reasonable plan.</value>
+  </data>
+  <data name="AlekhineDescription" xml:space="preserve">
+    <value>One time, Alekhine was ment to play a simultaneous game on 40 boards. In the last moment a powerful politician wanted to play so an extra board was added. When Alekhine came to this board he just turned it over.</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Amateur" xml:space="preserve">
+    <value>Amateur</value>
+  </data>
+  <data name="AnandDescription" xml:space="preserve">
+    <value>They call him the "Tiger of Madras".</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Chess Masters</value>
+  </data>
+  <data name="AreYouSureYouWantToDeleteThis" xml:space="preserve">
+    <value>Are you sure you want to delete {0}?</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="Beginner" xml:space="preserve">
+    <value>Beginner</value>
+  </data>
+  <data name="BestPlayers" xml:space="preserve">
+    <value>Best players</value>
+  </data>
+  <data name="BestProblemSolvers" xml:space="preserve">
+    <value>Best problem solvers</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="BlackIsPlayingFirst" xml:space="preserve">
+    <value>Black is playing first</value>
+  </data>
+  <data name="BotvinnikCites" xml:space="preserve">
+    <value>I played a blitz game once. It was on a train in 1929.</value>
+  </data>
+  <data name="BotvinnikDescription" xml:space="preserve">
+    <value>Only world champion that played with 12 other champions! With everbody from Lasker till Kramnik.</value>
+  </data>
+  <data name="Candidate" xml:space="preserve">
+    <value>Candidate</value>
+  </data>
+  <data name="CapablancaCites" xml:space="preserve">
+    <value>Good player is always lucky.</value>
+  </data>
+  <data name="CapablancaDescription" xml:space="preserve">
+    <value>Jose Raul Capablanca while he was playing tournaments since 1916 till 1924 never lost a single match. Besides being a great chess player, he was also known as quite a Casanova.</value>
+  </data>
+  <data name="CarlsenDescription" xml:space="preserve">
+    <value>He checkmated Bill Gatesa in 9 moves.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Challenge" xml:space="preserve">
+    <value>Challenge</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChessAcademy" xml:space="preserve">
+    <value>Chess Academy</value>
+  </data>
+  <data name="Cites" xml:space="preserve">
+    <value>Cites</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="CorrectMoveMessage" xml:space="preserve">
+    <value>The move you played is correct.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Create new account</value>
+  </data>
+  <data name="CreateNewGame" xml:space="preserve">
+    <value>Create new game</value>
+  </data>
+  <data name="CreateNewMatch" xml:space="preserve">
+    <value>Create new match</value>
+  </data>
+  <data name="CreateNewProblem" xml:space="preserve">
+    <value>Create new problem</value>
+  </data>
+  <data name="Croatian" xml:space="preserve">
+    <value>Croatian</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DefaultErrorMessage" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Difficulty" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditGame" xml:space="preserve">
+    <value>Edit game</value>
+  </data>
+  <data name="EditMatch" xml:space="preserve">
+    <value>Edit match</value>
+  </data>
+  <data name="EditProblem" xml:space="preserve">
+    <value>Edit problem</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailContactDescription" xml:space="preserve">
+    <value>The best way you can contact me is on my gmail:</value>
+  </data>
+  <data name="EmailErrorMessage" xml:space="preserve">
+    <value>Invalid Email Address</value>
+  </data>
+  <data name="Endings" xml:space="preserve">
+    <value>Endings</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EuweCites" xml:space="preserve">
+    <value>Strategy requires thinking, tactics requires observation.</value>
+  </data>
+  <data name="EuweDescription" xml:space="preserve">
+    <value>Max Euwe paid more attention to mathematics than chess in his life.</value>
+  </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>External logins</value>
+  </data>
+  <data name="FamousGames" xml:space="preserve">
+    <value>Famous games</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FindByName" xml:space="preserve">
+    <value>Find by name</value>
+  </data>
+  <data name="FineCites" xml:space="preserve">
+    <value>First principle of attack is: "Don't let your opponent develop!"</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="FischerCites" xml:space="preserve">
+    <value>Chess is a war on the board where the main goal is to destroy the opponents mind.&lt;br/&gt; Concentrate on material advantages. Everything your opponent gives you, take, unless you see a good reason not to.</value>
+  </data>
+  <data name="FischerDescription" xml:space="preserve">
+    <value>Fischer lost only 3 matches in 8 championships of USA which he won. After his terms we're declined for playing the match against Karpov it was decided that he had resigned his championship title without a fight in 1975.</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Gain</value>
+  </data>
+  <data name="GainRangeErrorMessage" xml:space="preserve">
+    <value>Gain must be between 0 and 30.</value>
+  </data>
+  <data name="GainRequiredErrorMessage" xml:space="preserve">
+    <value>Gain required.</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="GetSolution" xml:space="preserve">
+    <value>Get solution</value>
+  </data>
+  <data name="GitHubContactDescription" xml:space="preserve">
+    <value>You can find some of my other projects on</value>
+  </data>
+  <data name="GrandMaster" xml:space="preserve">
+    <value>Grand master</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="IncorrectMoveMessage" xml:space="preserve">
+    <value>The move you played is not correct, please try again.</value>
+  </data>
+  <data name="IndexText" xml:space="preserve">
+    <value>Best site for testing your chess skills. Also a great way to train your brain waves.
+        Some educational links down below</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="IsRated" xml:space="preserve">
+    <value>Is rated</value>
+  </data>
+  <data name="IsSolved" xml:space="preserve">
+    <value>Is solved?</value>
+  </data>
+  <data name="KarpovDescription" xml:space="preserve">
+    <value>Karpov was also known as a stamp collectioner.</value>
+  </data>
+  <data name="KasparovCites" xml:space="preserve">
+    <value>In chess the rules are fixed and the result unpredictable, while in Putin's Russia rules are unpredictable and the result is fixed.</value>
+  </data>
+  <data name="KasparovDescription" xml:space="preserve">
+    <value>Kasparov retired from chess in 2005. and dedicated his life to politics and spreading democracy in Russia. In 1996. he became the first world champion which lost to a computer when playing with time control, but he did prevail in the whole match.</value>
+  </data>
+  <data name="KramnikDescription" xml:space="preserve">
+    <value>He played a match of 6 games against a computer program Deep Fritz in Bonnu in 2006. He lost the match 4-2 with 2 defeats and 4 draws. Just for playing he received 500,000 euros.</value>
+  </data>
+  <data name="LarsenCites" xml:space="preserve">
+    <value>I often play a move for which I don't know how to counterplay.</value>
+  </data>
+  <data name="LaskerCites" xml:space="preserve">
+    <value>When you see a good move, seek for a better one.&lt;br/&gt;Good plan is equally hard to find as it's fair explanation.</value>
+  </data>
+  <data name="LaskerDescription" xml:space="preserve">
+    <value>Emanuel Lasker has held the world champion title the longest. (1894.-1921.)</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="LearnToPlayChess" xml:space="preserve">
+    <value>Learn to play chess</value>
+  </data>
+  <data name="LinkedInContactDescription" xml:space="preserve">
+    <value>All the important information about me is available on</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Master</value>
+  </data>
+  <data name="Matches" xml:space="preserve">
+    <value>Matches</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="MinutesRangeErrorMessage" xml:space="preserve">
+    <value>Minutes must be between 1 and 120.</value>
+  </data>
+  <data name="MinutesRequiredErrorMessage" xml:space="preserve">
+    <value>Minutes required.</value>
+  </data>
+  <data name="MorphyCites" xml:space="preserve">
+    <value>Help your pieces so they can help you.</value>
+  </data>
+  <data name="Moves" xml:space="preserve">
+    <value>Moves</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewGame" xml:space="preserve">
+    <value>New game</value>
+  </data>
+  <data name="NewMatch" xml:space="preserve">
+    <value>New match</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NewPasswordErrorMessage" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
+  <data name="NewProblem" xml:space="preserve">
+    <value>New problem</value>
+  </data>
+  <data name="NumberOfAttemptsMessage" xml:space="preserve">
+    <value>Number of attempts is: {0}</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Openings" xml:space="preserve">
+    <value>Openings</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Order by</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordConfirmErrorMessage" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="PasswordErrorMessage" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
+  <data name="PetrosianDescription" xml:space="preserve">
+    <value>Once he offered a draw to Svetozar Gligorić, which Svetozar initially declined, but after a few moves changed his mind and offered the draw back. Petrosian didn't heard him and continued to play and eventually won the game. Later was found out that he turned off his hearing aid and didn't hear a thing..</value>
+  </data>
+  <data name="PiecePositions" xml:space="preserve">
+    <value>Pieces positions</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PlayingRating" xml:space="preserve">
+    <value>Playing rating</value>
+  </data>
+  <data name="ProblemRating" xml:space="preserve">
+    <value>Problem rating</value>
+  </data>
+  <data name="Problems" xml:space="preserve">
+    <value>Problems</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="RatingFrom" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="RatingFromRangeErrorMessage" xml:space="preserve">
+    <value>Rating must be between 0 and 3500.</value>
+  </data>
+  <data name="RatingFromRequiredErrorMessage" xml:space="preserve">
+    <value>Rating from is required.</value>
+  </data>
+  <data name="RatingTo" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="RatingToRangeErrorMessage" xml:space="preserve">
+    <value>Rating must be between 0 and 3500.</value>
+  </data>
+  <data name="RatingToRequiredErrorMessage" xml:space="preserve">
+    <value>Rating to is required.</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RegistrationCompleted" xml:space="preserve">
+    <value>Registration completed</value>
+  </data>
+  <data name="RegistrationCompletedMessage" xml:space="preserve">
+    <value>You have successfully completed the registration process.</value>
+  </data>
+  <data name="RegistrationError" xml:space="preserve">
+    <value>Registration error</value>
+  </data>
+  <data name="RegistrationErrorMessage" xml:space="preserve">
+    <value>There was an error confirming your email. Please try again.</value>
+  </data>
+  <data name="RegistrationInstructions" xml:space="preserve">
+    <value>Registration instructions</value>
+  </data>
+  <data name="RegistrationInstructionsMessage" xml:space="preserve">
+    <value>To complete the registration process look for an email in your inbox that provides further instructions.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>Resign</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SmyslovDescription" xml:space="preserve">
+    <value>Smyslov was a baritone and later turned to his chess career after he was turned down on an audition in Bolshoi theater.</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>Solution</value>
+  </data>
+  <data name="Solve" xml:space="preserve">
+    <value>Solve</value>
+  </data>
+  <data name="Solved" xml:space="preserve">
+    <value>Solved</value>
+  </data>
+  <data name="SolvedProblemMessage" xml:space="preserve">
+    <value>You solved the problem successfully, congratulations.</value>
+  </data>
+  <data name="SpasskyDescription" xml:space="preserve">
+    <value>Described as a universal player. Never was an opening expert, but loved the middle game and was a master of tactics.</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="SteinitzCites" xml:space="preserve">
+    <value>Chess isn't for the player of a weak heart, it needs the whole person. If you wanna get into the heart of the game you must become a chess slave. Chess is hard, demands a lot of work, serious thinking and devoted analysis.</value>
+  </data>
+  <data name="SteinitzDescription" xml:space="preserve">
+    <value>He said in 1877. that he plays chess with God in his dreams, winning with one knight down. Steinitz defeated Johannes Zukertot in 1886. and became the first world champion.</value>
+  </data>
+  <data name="Strategies" xml:space="preserve">
+    <value>Strategies</value>
+  </data>
+  <data name="SuccessRate" xml:space="preserve">
+    <value>Success rate</value>
+  </data>
+  <data name="TalCites" xml:space="preserve">
+    <value>There are two kinds of sacrifices: correct ones and mine.&lt;br/&gt;Playing on a draw with white is on any level a crime against chess.</value>
+  </data>
+  <data name="TalDescription" xml:space="preserve">
+    <value>He became a world champion when he was only 23 years old.</value>
+  </data>
+  <data name="TartakowerCites" xml:space="preserve">
+    <value>It's always better to sacrifice opponents pieces.</value>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>times</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="WhiteIsPlaying" xml:space="preserve">
+    <value>White is playing?</value>
+  </data>
+  <data name="WhiteIsPlayingFirst" xml:space="preserve">
+    <value>White is playing first</value>
+  </data>
+</root>

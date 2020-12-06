@@ -1,0 +1,8 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink(Resources.English, "ChangeCulture", "Account", new { lang = "en", returnUrl = this.Request.RawUrl }, null)
+    </li>
+    <li>
+        @Html.ActionLink(Resources.Croatian, "ChangeCulture", "Account", new { lang = "hr", returnUrl = this.Request.RawUrl }, null)
+    </li>
+</ul>

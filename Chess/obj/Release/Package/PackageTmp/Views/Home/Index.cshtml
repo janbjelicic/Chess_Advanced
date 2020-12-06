@@ -1,0 +1,56 @@
+﻿@model Chess.Models.ViewModels.HomeViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = Resources.HomePage;
+}
+<h3>@Resources.ApplicationName</h3>
+<div class="row">
+    <div class="col-md-12">
+        @Resources.IndexText:
+        <ul>
+            <li><a href="http://www.chess.com/learn-how-to-play-chess">@Resources.LearnToPlayChess</a></li>
+            <li><a href="http://www.chesscademy.com/">@Resources.ChessAcademy</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        @Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+        <div id="board"></div>
+    </div>
+    <div class="col-md-push-1 col-md-3">
+        <table class="table">
+            <thead>
+                @Resources.BestPlayers
+            </thead>
+            <tbody>
+                @foreach (var player in Model.BestPlayers)
+                {
+                    <tr>
+                        <td>@Html.Raw(player)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <table class="table">
+            <thead>
+                @Resources.BestProblemSolvers
+            </thead>
+            <tbody>
+                @foreach (var player in Model.BestProblemSolvers)
+                {
+                    <tr>
+                        <td>@Html.Raw(player)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/chess")
+    @Scripts.Render("~/Scripts/Home/index.js")
+}
+

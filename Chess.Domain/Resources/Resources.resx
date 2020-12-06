@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>O nama</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Zovem se Jan Bjeličić i ovo je moj diplomski rad za modul programsko inženjerstvo i informacijski sustavi na fakultetu elektrotehnike i
+        računarstva u Zagrebu. Dolazim iz malog grada po imenu Križevci u sjeverozapadnoj Hrvatskoj gdje sam završio osnovnu i srednju školu. Ljubav
+        za programiranjem započela je kada sam se upisao na fakultet i nedugo nakon toga sam krenuo razvijati mobilne i web aplikacija te rješavati
+        algoritamske probleme. Razlog zašto sam počeo raditi šahovsku stranicu je moja druga najveća ljubav poslije programiranja, a to je šah.
+        Imam titulu majstorskog kandidata i prisustvovao sam nekoliko profesionalnih partija dok sam bio mlađi. Danas sam fokusiran na programiranje,
+        ali opet bi htio odati počast dijelu života gdje sam fokusirao samo na šah tako što ću napraviti ovu stranicu. Nadam se da će vam se svidjeti, pozdrav.</value>
+  </data>
+  <data name="AddMatches" xml:space="preserve">
+    <value>Dodaj partije</value>
+  </data>
+  <data name="AddProblems" xml:space="preserve">
+    <value>Dodaj probleme</value>
+  </data>
+  <data name="AlekhineCites" xml:space="preserve">
+    <value>Igranje na komplikacije je ekstremna mjera na koju igrač treba igrati samo ako ne može pronaći razumni i logički plan.</value>
+  </data>
+  <data name="AlekhineDescription" xml:space="preserve">
+    <value>Jednom prilikom je Aljehin trebao održati simultanku na 40 ploča. U međuvremenu
+            je utjecajni političar izrazio želju da želi igrati i dodana je 41. ploča. Dok je Aljehin došao do te ploče samo ju je preokrenuo.</value>
+  </data>
+  <data name="AnandDescription" xml:space="preserve">
+    <value>Zovu ga "Tiger of Madras".</value>
+  </data>
+  <data name="BotvinnikCites" xml:space="preserve">
+    <value>Igrao sam blic partiju jednom. Bilo je to u vlaku 1929.</value>
+  </data>
+  <data name="BotvinnikDescription" xml:space="preserve">
+    <value>Jedini svjetski prvak koji je igrao protiv 12 svjetskih prvaka! Sa svima od Laskera do Kramnika.</value>
+  </data>
+  <data name="CapablancaCites" xml:space="preserve">
+    <value>Dobar igrač uvijek ima sreće.</value>
+  </data>
+  <data name="CapablancaDescription" xml:space="preserve">
+    <value>Jose Raul Capablanca tijekom igranja turnira u razdoblju od 1916 do 1924 godine
+            nije izgubio nijednu partiju. Osim što su ga poznavali kao velikog šahovskog majstora, Capablanca je bio poznat kao i veliki ljubitelj žena.</value>
+  </data>
+  <data name="CarlsenDescription" xml:space="preserve">
+    <value>Matirao je Bill Gatesa u 9 poteza.</value>
+  </data>
+  <data name="Cites" xml:space="preserve">
+    <value>Citati</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Komentari</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Napravite novi račun </value>
+  </data>
+  <data name="Croatian" xml:space="preserve">
+    <value>Hrvatski</value>
+  </data>
+  <data name="EmailContactDescription" xml:space="preserve">
+    <value>Najbolji način kako se može doći do mene je preko mog gmail računa:</value>
+  </data>
+  <data name="Endings" xml:space="preserve">
+    <value>Konačnice</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Engleski</value>
+  </data>
+  <data name="EuweCites" xml:space="preserve">
+    <value>Strategija zahtijeva razmišljanje, taktika zahtijeva opažanje.</value>
+  </data>
+  <data name="EuweDescription" xml:space="preserve">
+    <value>Max Euwe je svoj život više posvećivao matematici nego šahu.</value>
+  </data>
+  <data name="ExternalLogins" xml:space="preserve">
+    <value>Vanjski login</value>
+  </data>
+  <data name="FineCites" xml:space="preserve">
+    <value>Prvi princip napada jest : "Ne daj protivniku da se razvije!"</value>
+  </data>
+  <data name="FischerCites" xml:space="preserve">
+    <value>Šah je rat na ploči gdje je cilj srušiti protivnikov um.&lt;br/&gt;Koncetriraj se na materijalne dobitke. Sve što ti protivnik daje, uzmi, osim ako ne vidiš dobar razlog za suprotno.</value>
+  </data>
+  <data name="FischerDescription" xml:space="preserve">
+    <value>Fischer je izgubio samo 3 partije u 8 prvenstava SAD-a koja je osvojio. Nakon što su odbili njegove uvjete za odigravanje meča sa Karpovom odlučeno je da je Fischer predao bez borbe svoju titulu svjetskog prvaka 1975.</value>
+  </data>
+  <data name="GitHubContactDescription" xml:space="preserve">
+    <value>Moje ostale projekte možete vidjeti na</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Povijest</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Naslovnica</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informacije</value>
+  </data>
+  <data name="KarpovDescription" xml:space="preserve">
+    <value>Karpov je bio poznat i kao veliki kolekcionar poštanskih maraka.</value>
+  </data>
+  <data name="KasparovCites" xml:space="preserve">
+    <value>U šahu su pravila fiksna i rezultat nepredvidiv, dok u Putinovoj Rusiji, pravila su nepredvidiva, a rezultat fiksan.</value>
+  </data>
+  <data name="KasparovDescription" xml:space="preserve">
+    <value>Kasparov se umirovio od šaha 2005. i posvetio se politici i promoviranju demokracije u Rusiji. 1996. postao je prvi svjetski prvak koji je izgubio od računala igrano na vremensku kontrolu ali je pobijedio u meču.</value>
+  </data>
+  <data name="KramnikDescription" xml:space="preserve">
+    <value>Igrao je meč od 6 partija protiv računalnog programa Deep Fritz u Bonnu 2006. Meč je izgubio 4-2 sa 2 poraza i 4 remija. Za samo igranje u meču je primio 500,000 eura.</value>
+  </data>
+  <data name="LarsenCites" xml:space="preserve">
+    <value>Često igram potez koji znam kako oboriti.</value>
+  </data>
+  <data name="LaskerCites" xml:space="preserve">
+    <value>Kada vidiš dobar potez, potraži bolji.&lt;br/&gt;Dobar plan je jednako teško pronaći kao i njegovo dobro opravdanje.</value>
+  </data>
+  <data name="LaskerDescription" xml:space="preserve">
+    <value>Emanuel Lasker je držao titulu svjetskog prvaka 27 godina što je najduže u odnosu na ostale prvake. (1894.-1921.)</value>
+  </data>
+  <data name="LinkedInContactDescription" xml:space="preserve">
+    <value>Sve moje bitne informacije dostupne su na</value>
+  </data>
+  <data name="Matches" xml:space="preserve">
+    <value>Partije</value>
+  </data>
+  <data name="MorphyCites" xml:space="preserve">
+    <value>Pomnogi svojim figurama tako da one mogu pomoći tebi.</value>
+  </data>
+  <data name="Openings" xml:space="preserve">
+    <value>Otvaranja</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="PetrosianDescription" xml:space="preserve">
+    <value>Jednom prilikom je ponudio remi Svetozaru Gligoriću,
+            kojeg je on inicijalno odbio no predomislio se nakon par poteza i ponudio natrag remi. Petrosian ga nije čuo i nastavio igrati te na kraju pobijedio u partiji. Poslije se ispostavilo da je isključio slušni aparat i nije čuo Gligorića kad mu je nudio remi.</value>
+  </data>
+  <data name="Problems" xml:space="preserve">
+    <value>Problemi</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="SmyslovDescription" xml:space="preserve">
+    <value>Smyslov je bio bariton pa se kasnije okrenuo šahovskoj karijeri kada nije prošao  na audiciji u Bolshoi kazalištu.</value>
+  </data>
+  <data name="SpasskyDescription" xml:space="preserve">
+    <value>Najčešće je bio opisivan kao univerzalan igrač. Nikada nije bio stručnjak za otvaranja. Specijalnost su mu bile središnjice, a bio je i veliki taktičar.</value>
+  </data>
+  <data name="SteinitzCites" xml:space="preserve">
+    <value>Šah nije za ljude slabog srca, on zahtijeva čitavu osobu. Za ulazak u srž ove igre čovjek mora postati šahovski rob. Šah je težak, zahtijeva puno rada ozbiljna razmišljanja i predana istraživanja.</value>
+  </data>
+  <data name="SteinitzDescription" xml:space="preserve">
+    <value>Izjavio je 1877. da igra šah s bogom u snovima te da ga pobjeđuje s tim da mu daje  konja više na početku partije.
+            Steinitz je pobijedio Johannesa Zukertota 1886. i tako postao prvi
+            svjetski prvak.</value>
+  </data>
+  <data name="Strategies" xml:space="preserve">
+    <value>Središnjice</value>
+  </data>
+  <data name="TalCites" xml:space="preserve">
+    <value>Postoje dvije vrste žrtvi : korektne i moje.&lt;br/&gt;Igrati na remi sa bijelima na bilo koji način, je na nekom nivou zločin protiv šaha.</value>
+  </data>
+  <data name="TalDescription" xml:space="preserve">
+    <value>Postao svjetski prvak sa samo 23 godine.</value>
+  </data>
+  <data name="TartakowerCites" xml:space="preserve">
+    <value>Uvijek je bolje žrtovati protivnikove ljude.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Korisničko ime</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrdi lozinku</value>
+  </data>
+  <data name="PasswordConfirmErrorMessage" xml:space="preserve">
+    <value>Lozinke si ne odgovaraju.</value>
+  </data>
+  <data name="PasswordErrorMessage" xml:space="preserve">
+    <value>Lozinka {0} mora biti barem {2} znakova duga.</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Trenutna lozinka</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nova lozinka</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Potvrdi novu lozinku</value>
+  </data>
+  <data name="NewPasswordErrorMessage" xml:space="preserve">
+    <value>Lozinke si ne odgovaraju.</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Zapamti me?</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Chess Masters</value>
+  </data>
+  <data name="ChessAcademy" xml:space="preserve">
+    <value>Šahovska akademija</value>
+  </data>
+  <data name="LearnToPlayChess" xml:space="preserve">
+    <value>Nauči igrati šah</value>
+  </data>
+  <data name="EmailErrorMessage" xml:space="preserve">
+    <value>Neispravna email adresa</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtriraj</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spremi</value>
+  </data>
+  <data name="RatingFrom" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="RatingFromRequiredErrorMessage" xml:space="preserve">
+    <value>Potrebno je unijeti minimalnu granicu rejting bodova.</value>
+  </data>
+  <data name="RatingFromRangeErrorMessage" xml:space="preserve">
+    <value>Bodovi moraju biti između 0 i 3500.</value>
+  </data>
+  <data name="RatingTo" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="RatingToRequiredErrorMessage" xml:space="preserve">
+    <value>Potrebno je unijeti maksimalnu granicu rejting bodova.</value>
+  </data>
+  <data name="RatingToRangeErrorMessage" xml:space="preserve">
+    <value>Bodovi moraju biti između 0 i 3500.</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="MinutesRequiredErrorMessage" xml:space="preserve">
+    <value>Potrebno je unijeti minute.</value>
+  </data>
+  <data name="MinutesRangeErrorMessage" xml:space="preserve">
+    <value>Vrijednost minuta mora biti između 1 i 120.</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Dodatak</value>
+  </data>
+  <data name="GainRequiredErrorMessage" xml:space="preserve">
+    <value>Potrebno je unijeti dodatak.</value>
+  </data>
+  <data name="GainRangeErrorMessage" xml:space="preserve">
+    <value>Vrijednost dodatka mora biti između 0 i 30.</value>
+  </data>
+  <data name="IsRated" xml:space="preserve">
+    <value>Za rejting</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="PlayingRating" xml:space="preserve">
+    <value>Elo rating</value>
+  </data>
+  <data name="ProblemRating" xml:space="preserve">
+    <value>Problemski rating</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>Korisničko ime ili lozinka su neispravno uneseni.</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Remi</value>
+  </data>
+  <data name="Resign" xml:space="preserve">
+    <value>Predaja</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Komentiraj</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Promjeni lozinku</value>
+  </data>
+  <data name="DefaultErrorMessage" xml:space="preserve">
+    <value>Došlo je do pogreške. Molimo vas provjerite unesene podatke i pokušajte ponovno. Ukoliko još uvijek dolazi do problema javite nam se.</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>Korisničko ime za ovaj email već postoji. Molim vas unesite drugi email.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>Korisničko ime već postoji. Unesite drugo ime.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Email adresa je neispravna. Molim vas unesite ispravni email.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Lozinka je neispravna. Molim vas unesite ispravnu lozinku.</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Prijavi se</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Ažuriraj</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Čisto</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Početak</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Svi</value>
+  </data>
+  <data name="Amateur" xml:space="preserve">
+    <value>Amater</value>
+  </data>
+  <data name="Beginner" xml:space="preserve">
+    <value>Početnik</value>
+  </data>
+  <data name="Candidate" xml:space="preserve">
+    <value>Kandidat</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Unesi</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Difficulty" xml:space="preserve">
+    <value>Težina</value>
+  </data>
+  <data name="GrandMaster" xml:space="preserve">
+    <value>Velemajstor</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Majstor</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="Solve" xml:space="preserve">
+    <value>Riješi</value>
+  </data>
+  <data name="Solved" xml:space="preserve">
+    <value>Rješeno</value>
+  </data>
+  <data name="SuccessRate" xml:space="preserve">
+    <value>Uspješnost</value>
+  </data>
+  <data name="Times" xml:space="preserve">
+    <value>puta</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Nepoznato</value>
+  </data>
+  <data name="WhiteIsPlaying" xml:space="preserve">
+    <value>Bijeli igra?</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Povratak na listu</value>
+  </data>
+  <data name="CreateNewGame" xml:space="preserve">
+    <value>Unesi novu igru</value>
+  </data>
+  <data name="NewGame" xml:space="preserve">
+    <value>Nova igra</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Games" xml:space="preserve">
+    <value>Igre</value>
+  </data>
+  <data name="AreYouSureYouWantToDeleteThis" xml:space="preserve">
+    <value>Jeste li sigurni da želite obrisati {0}?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorija</value>
+  </data>
+  <data name="CreateNewProblem" xml:space="preserve">
+    <value>Unesi novi problem</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Brisanje</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Game" xml:space="preserve">
+    <value>Igra</value>
+  </data>
+  <data name="EditGame" xml:space="preserve">
+    <value>Uredi igru</value>
+  </data>
+  <data name="EditProblem" xml:space="preserve">
+    <value>Uredi problem</value>
+  </data>
+  <data name="NewProblem" xml:space="preserve">
+    <value>Novi problem</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>Rješenje</value>
+  </data>
+  <data name="BlackIsPlayingFirst" xml:space="preserve">
+    <value>Crni je prvi na potezu</value>
+  </data>
+  <data name="CorrectMoveMessage" xml:space="preserve">
+    <value>Unijeli ste ispravan potez.</value>
+  </data>
+  <data name="IncorrectMoveMessage" xml:space="preserve">
+    <value>Odigrali ste neispravan potez, molimo pokušajte ponovno.</value>
+  </data>
+  <data name="NumberOfAttemptsMessage" xml:space="preserve">
+    <value>Broj pokušaja je: {0}</value>
+  </data>
+  <data name="SolvedProblemMessage" xml:space="preserve">
+    <value>Ispravno ste rješili problem, čestitamo.</value>
+  </data>
+  <data name="WhiteIsPlayingFirst" xml:space="preserve">
+    <value>Bijeli je prvi na potezu</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Crni</value>
+  </data>
+  <data name="CreateNewMatch" xml:space="preserve">
+    <value>Unesi novu partiju</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="EditMatch" xml:space="preserve">
+    <value>Uredi partiju</value>
+  </data>
+  <data name="FamousGames" xml:space="preserve">
+    <value>Poznate partije</value>
+  </data>
+  <data name="GetSolution" xml:space="preserve">
+    <value>Dohvati rješenje</value>
+  </data>
+  <data name="IsSolved" xml:space="preserve">
+    <value>Rješen?</value>
+  </data>
+  <data name="NewMatch" xml:space="preserve">
+    <value>Nova partija</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Poredaj po</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Mjesto</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Uspješnost</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Rezultat</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>Bijeli</value>
+  </data>
+  <data name="Moves" xml:space="preserve">
+    <value>Potezi</value>
+  </data>
+  <data name="BestPlayers" xml:space="preserve">
+    <value>Najbolji igrači</value>
+  </data>
+  <data name="BestProblemSolvers" xml:space="preserve">
+    <value>Najbolji problemisti</value>
+  </data>
+  <data name="IndexText" xml:space="preserve">
+    <value>Najbolja stranica za testiranje šahovskih vještina. Također način za treniranje moždanih vijuga. Dostupne edukacijske poveznice</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="PiecePositions" xml:space="preserve">
+    <value>Pozicije figura</value>
+  </data>
+  <data name="FindByName" xml:space="preserve">
+    <value>Pretraga po imenu</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraga</value>
+  </data>
+  <data name="RegistrationCompleted" xml:space="preserve">
+    <value>Registracija dovršena</value>
+  </data>
+  <data name="RegistrationCompletedMessage" xml:space="preserve">
+    <value>Uspješno ste završili registracijski proces.</value>
+  </data>
+  <data name="RegistrationError" xml:space="preserve">
+    <value>Pogreška u registraciji</value>
+  </data>
+  <data name="RegistrationErrorMessage" xml:space="preserve">
+    <value>Dogodila se pogreška tijekom primanja vašeg maila. Molimo vas pokušajte ponovno.</value>
+  </data>
+  <data name="RegistrationInstructions" xml:space="preserve">
+    <value>Daljnje instrukcije za registraciju</value>
+  </data>
+  <data name="RegistrationInstructionsMessage" xml:space="preserve">
+    <value>Za dovršetak registracijskog procesa provjerite email koji vam je poslan za daljnje instrukcije.</value>
+  </data>
+  <data name="Challenge" xml:space="preserve">
+    <value>Izazov</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Igraj</value>
+  </data>
+</root>

@@ -1,0 +1,77 @@
+﻿@model PagedList.IPagedList<Chess.Domain.Entities.Game>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = Resources.Games;
+    var i = 0;
+}
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+@if(Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+{ 
+    <p>
+        @Html.ActionLink(Resources.CreateNewGame, "Create", new { returnUrl = ViewBag.ReturnUrl }, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+}
+
+@using (Html.BeginForm((string)ViewBag.ReturnUrl, "Game", FormMethod.Get))
+{
+    <p>
+        @Resources.FindByName: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" class="btn btn-default" value="@Resources.Search" />
+    </p>
+}
+
+@if (Model.Count > 0) { 
+    <input type="hidden" id="number-of-positions" value="@Model.Count"/>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => model.First().Name).ToHtmlString(), (string)ViewBag.ReturnUrl, new { page = Model.PageNumber, sortOrder = ViewBag.NameSortParameter, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink(Html.DisplayNameFor(model => model.First().Code).ToHtmlString(), (string)ViewBag.ReturnUrl, new { page = Model.PageNumber, sortOrder = ViewBag.CodeSortParameter, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PiecePositions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @{ 
+                i++;
+                var boardId = string.Format("board-game{0}", i);
+                var piecePositionsId = string.Format("piece-positions-form-index{0}", i);
+            }
+            <div class="board-game-index" id="@boardId"></div>
+            @Html.HiddenFor(modelItem => item.PiecePositions, htmlAttributes: new { id = piecePositionsId })
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.ID, returnUrl = ViewBag.ReturnUrl }, htmlAttributes: new { @class = "btn btn-warning" })
+@if(Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+{
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID, returnUrl = ViewBag.ReturnUrl }, htmlAttributes: new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID, returnUrl = ViewBag.ReturnUrl }, htmlAttributes: new { @class = "btn btn-danger" })
+}
+        </td>
+    </tr>
+}
+</table>
+}
+<hr />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action((string)ViewBag.ReturnUrl, new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+@section Scripts {
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/chessboard.min.js")
+    @Scripts.Render("~/Scripts/Game/index.js")
+}

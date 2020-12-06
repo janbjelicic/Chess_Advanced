@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Position_ID" Type="Int32" />
+    <Property Name="Match_ID" Type="Int32" />
+    <NavigationProperty Name="Match" Relationship="Self.Match_Comments" FromRole="Comments" ToRole="Matches" />
+    <NavigationProperty Name="Position" Relationship="Self.Position_Comments" FromRole="Comments" ToRole="Positions" />
+    <NavigationProperty Name="User" Relationship="Self.User_Comments" FromRole="Comments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="PiecePositions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Match">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsPlayed" Type="Boolean" Nullable="false" />
+    <Property Name="IsRated" Type="Boolean" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="Black_ID" Type="Int32" />
+    <Property Name="White_ID" Type="Int32" />
+    <NavigationProperty Name="Comments" Relationship="Self.Match_Comments" FromRole="Matches" ToRole="Comments" />
+    <NavigationProperty Name="User" Relationship="Self.Match_Black" FromRole="Matches" ToRole="Users" />
+    <NavigationProperty Name="Moves" Relationship="Self.Match_Moves" FromRole="Matches" ToRole="Moves" />
+    <NavigationProperty Name="User1" Relationship="Self.Match_White" FromRole="Matches" ToRole="Users" />
+    <NavigationProperty Name="User2" Relationship="Self.User_Matches" FromRole="Matches" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Move">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Piece" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoveNumber" Type="Int32" Nullable="false" />
+    <Property Name="WhitePlayed" Type="Boolean" Nullable="false" />
+    <Property Name="Position_ID" Type="Int32" />
+    <Property Name="Match_ID" Type="Int32" />
+    <NavigationProperty Name="Match" Relationship="Self.Match_Moves" FromRole="Moves" ToRole="Matches" />
+    <NavigationProperty Name="Position" Relationship="Self.Position_Solution" FromRole="Moves" ToRole="Positions" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="PiecePositions" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WhiteIsPlaying" Type="Boolean" Nullable="false" />
+    <Property Name="Difficulty" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="Self.Position_Comments" FromRole="Positions" ToRole="Comments" />
+    <NavigationProperty Name="Moves" Relationship="Self.Position_Solution" FromRole="Positions" ToRole="Moves" />
+    <NavigationProperty Name="UserSolutions" Relationship="Self.Position_UserSolutions" FromRole="Positions" ToRole="UserSolution" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PlayingRating" Type="Int32" Nullable="false" />
+    <Property Name="ProblemRating" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="IsRated" Type="Boolean" Nullable="false" />
+    <Property Name="RatingFrom" Type="Int32" Nullable="false" />
+    <Property Name="RatingTo" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Int32" Nullable="false" />
+    <Property Name="Gain" Type="Int32" Nullable="false" />
+    <Property Name="CultureInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="Self.User_Comments" FromRole="Users" ToRole="Comments" />
+    <NavigationProperty Name="Matches" Relationship="Self.Match_Black" FromRole="Users" ToRole="Matches" />
+    <NavigationProperty Name="Matches1" Relationship="Self.Match_White" FromRole="Users" ToRole="Matches" />
+    <NavigationProperty Name="Matches2" Relationship="Self.User_Matches" FromRole="Users" ToRole="Matches" />
+    <NavigationProperty Name="UserSolutions" Relationship="Self.UserSolution_User" FromRole="Users" ToRole="UserSolution" />
+  </EntityType>
+  <EntityType Name="UserSolution">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrentMove" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfAttempts" Type="Int32" Nullable="false" />
+    <Property Name="IsSolved" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProblemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.Position_UserSolutions" FromRole="UserSolution" ToRole="Positions" />
+    <NavigationProperty Name="User" Relationship="Self.UserSolution_User" FromRole="UserSolution" ToRole="Users" />
+  </EntityType>
+  <Association Name="Match_Comments">
+    <End Role="Matches" Type="Self.Match" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_Comments">
+    <End Role="Positions" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Position_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Comments">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_Black">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Black_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_Moves">
+    <End Role="Matches" Type="Self.Match" Multiplicity="0..1" />
+    <End Role="Moves" Type="Self.Move" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Moves">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_White">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="White_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Matches">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Match" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_Solution">
+    <End Role="Positions" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Moves" Type="Self.Move" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Moves">
+        <PropertyRef Name="Position_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_UserSolutions">
+    <End Role="Positions" Type="Self.Position" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSolution" Type="Self.UserSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserSolution">
+        <PropertyRef Name="ProblemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSolution_User">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSolution" Type="Self.UserSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserSolution">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChessEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="Matches" EntityType="Self.Match" />
+    <EntitySet Name="Moves" EntityType="Self.Move" />
+    <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserSolutions" EntityType="Self.UserSolution" />
+    <AssociationSet Name="Match_Comments" Association="Self.Match_Comments">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Position_Comments" Association="Self.Position_Comments">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="User_Comments" Association="Self.User_Comments">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Match_Black" Association="Self.Match_Black">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="Match_Moves" Association="Self.Match_Moves">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Moves" EntitySet="Moves" />
+    </AssociationSet>
+    <AssociationSet Name="Match_White" Association="Self.Match_White">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="User_Matches" Association="Self.User_Matches">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="Position_Solution" Association="Self.Position_Solution">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Moves" EntitySet="Moves" />
+    </AssociationSet>
+    <AssociationSet Name="Position_UserSolutions" Association="Self.Position_UserSolutions">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="UserSolution" EntitySet="UserSolutions" />
+    </AssociationSet>
+    <AssociationSet Name="UserSolution_User" Association="Self.UserSolution_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserSolution" EntitySet="UserSolutions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

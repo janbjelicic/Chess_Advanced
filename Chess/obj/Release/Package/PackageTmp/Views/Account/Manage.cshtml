@@ -1,0 +1,116 @@
+﻿@model Chess.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<hgroup class="title">
+    <h1>@User.Identity.Name</h1>
+</hgroup>
+
+<p class="message-success">@ViewBag.StatusMessage</p>
+
+<div class="well">
+    <ul class="nav nav-tabs">
+        <li class="active" id="profile-information-item"><a href="#" onclick="return false;" data-toggle="tab">@Resources.Information</a></li>
+        <li id="profile-password-item"><a href="#" onclick="return false;" data-toggle="tab">@Resources.Password</a></li>
+        <li id="profile-matches-item"><a href="#" onclick="return false;" data-toggle="tab">@Resources.Matches</a></li>
+        <li id="profile-comments-item"><a href="#" onclick="return false;" data-toggle="tab">@Resources.Comments</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="profile-information">
+            <form id="tab">
+                @using (Html.BeginForm("Information", "Account"))
+                {
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.UserName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(m => m.User.UserName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.PlayingRating, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.DisplayFor(m => m.User.PlayingRating, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.ProblemRating, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.DisplayFor(m => m.User.ProblemRating, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.FirstName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(m => m.User.FirstName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.LastName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(m => m.User.LastName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.User.Address, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(m => m.User.Address, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-5">
+                                        <input type="submit" class="btn btn-primary" value="@Resources.Update" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile-password">
+            <form id="tab2">
+                @Html.Partial("_ChangePasswordPartial")
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile-matches">
+            <form id="tab3">
+                <br />
+                @foreach (var match in Model.User.Matches)
+                {
+                    <p>@Html.ActionLink(match.Description, "ViewMatch", "Match", new { id = match.ID }, null)</p>
+                    <br />
+                }
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile-comments">
+            <form id="tab4">
+                <br/>
+                @foreach (var comment in Model.User.Comments)
+                {
+                    if (comment.Match != null)
+                    {
+                        <p>@Html.Raw(comment.DateCreated), @Html.Raw(comment.Content) -> @Html.ActionLink(comment.Match.Description, "ViewMatch", "Match", new { id = comment.Match.ID }, null)</p>
+                    }
+                    else
+                    {
+                        <p>@Html.Raw(comment.DateCreated), @Html.Raw(comment.Content) -> @Html.ActionLink(comment.Position.Name, "Solve", "Position", new { id = comment.Position.ID }, null)</p>
+                    }
+                        <br />
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/User/user_bar.js")
+}

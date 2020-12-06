@@ -1,0 +1,118 @@
+﻿body {
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.champion-profile {
+    float: left;
+    text-align: center;
+    width: 30%;
+}
+
+.champion-description {
+    padding-top: 10px;
+    position: relative;
+    width: 70%;
+    float: left;
+}
+
+.champion-image {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.cite-author {
+    font-weight: bold;
+}
+
+
+.problem-name {
+    padding-bottom: 5px;
+    font-size: 2em;
+}
+
+.problem-single {
+    border: 1px gray solid;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 2%;
+}
+
+.problem-data {
+    padding-left: 6px;
+}
+
+.problem-image {
+    width: 5%;
+    height: 5%;
+}
+
+.match-image {
+    width: 2%;
+    height: 2%;
+}
+
+.problem-images {
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+.problem-link {
+}
+
+.problem-data-content {
+    color: #979faf;
+    font-weight: bold;
+}
+
+.problem-data-data {
+    font-weight: bold;
+}
+
+div#online-users-table {
+    border-left: 1px solid black;
+}
+
+.board-button-image {
+    height: 15px;
+    width: 40px;
+}
+
+.comment-delete-image {
+    width: 8%;
+    height: 8%;
+}
+
+.logo-image {
+    width: 30%;
+}
+
+.board-game-index {
+    width: 160px;
+}
+
+#white-time{
+    font-size: 2em;
+    padding-right: 5%;
+}
+
+#black-time{
+    font-size: 2em;
+}

@@ -1,0 +1,10 @@
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\Chess.Bussiness.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\Chess.Bussiness.pdb
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\Chess.Domain.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\EntityFramework.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\Chess.Domain.pdb
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\EntityFramework.xml
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Release\en\Chess.Domain.resources.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Release\Chess.Bussiness.csprojResolveAssemblyReference.cache
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Release\Chess.Bussiness.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Release\Chess.Bussiness.pdb

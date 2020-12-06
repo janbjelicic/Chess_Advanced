@@ -1,0 +1,17 @@
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\Chess.Domain.dll.config
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\Chess.Domain.dll
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\Chess.Domain.pdb
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\en\Chess.Domain.resources.dll
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\EntityFramework.dll
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\EntityFramework.xml
+D:\Jan\Applications\Chess\Chess.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.csprojResolveAssemblyReference.cache
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.Resources.Figures.resources
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.Resources.Resources.resources
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.Resources.Figures.en.resources
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.Resources.Resources.en.resources
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.csproj.GenerateResource.Cache
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\en\Chess.Domain.resources.dll
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.dll
+D:\Jan\Applications\Chess\Chess.Domain\obj\Debug\Chess.Domain.pdb

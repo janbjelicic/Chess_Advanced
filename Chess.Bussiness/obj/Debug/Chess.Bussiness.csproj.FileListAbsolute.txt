@@ -1,0 +1,10 @@
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\Chess.Bussiness.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\Chess.Bussiness.pdb
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\Chess.Domain.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\EntityFramework.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\Chess.Domain.pdb
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\EntityFramework.xml
+D:\Jan\Applications\Chess\Chess.Bussiness\bin\Debug\en\Chess.Domain.resources.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Debug\Chess.Bussiness.csprojResolveAssemblyReference.cache
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Debug\Chess.Bussiness.dll
+D:\Jan\Applications\Chess\Chess.Bussiness\obj\Debug\Chess.Bussiness.pdb

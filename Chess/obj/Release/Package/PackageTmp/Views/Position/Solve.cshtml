@@ -1,0 +1,75 @@
+﻿@model Chess.Models.ViewModels.PositionViewModels.SolveProblemModel
+
+@{
+    ViewBag.Title = Resources.Solve;
+    var title = string.Format("{0} ({1} - {2})", Model.Position.Name, Model.Position.Difficulty, Model.Position.Category);
+    var numberOfMoves = Model.Position.Solution.Count();
+    var solvedMessage = Model.UserSolution.IsSolved ? Resources.SolvedProblemMessage : "";
+    var attemptsMessage = string.Format(Resources.NumberOfAttemptsMessage, Model.UserSolution.NumberOfAttempts);
+}
+
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+
+<h1>@Html.Raw(title)</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-5">
+        <div id="board-problem"></div>
+        <div class="text-center">
+            <h4>
+                @if (Model.Position.WhiteIsPlaying)
+                {
+                    @Html.Raw(Resources.WhiteIsPlayingFirst)
+                } else
+                {
+                    @Html.Raw(Resources.BlackIsPlayingFirst)
+                }
+            </h4>
+        </div>
+        @Html.HiddenFor(x => x.Position.ID, htmlAttributes: new { id = "position-id-form-solving" })
+        @Html.HiddenFor(x => x.Position.PiecePositions, htmlAttributes: new { id = "piece-positions-form-solving" })
+        @Html.HiddenFor(x => x.Position.WhiteIsPlaying, htmlAttributes: new { id = "white-is-playing-form-solving" })
+        <input type="hidden" value="@numberOfMoves" id="number-of-moves-form-solving" />
+    </div>
+    <div class="col-md-7">
+        <h4>@Resources.Solution</h4>
+        <table class="table" id="table-solution">
+            <tbody id="table-solution-body"></tbody>
+        </table>
+        <div id="success-message">
+            <p>
+                @Html.Raw(solvedMessage)
+            </p>
+        </div>
+        <div id="attempt-message">
+            <p>
+                @Html.Raw(attemptsMessage)
+            </p>
+        </div>
+        @if (Model.UserSolution.IsSolved) { 
+            <input type="button" id="btn-get-solution" class="btn btn-default" value="@Resources.GetSolution"/>
+        }
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <h4>
+            @Resources.Comments
+        </h4>
+
+        @Html.TextArea("text", new { rows = 5, cols = 50, id = "comment-box" })
+        <br/><br/>
+        <div class="text-right">
+            <input type="submit" id="btn-add-comment" class="btn btn-primary" value="@Resources.Comment" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    @{ Html.RenderPartial("Comment", Model.Position.Comments); }
+</div>
+@section Scripts {
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/chessboard.min.js")
+    @Scripts.Render("~/Scripts/Position/solve.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

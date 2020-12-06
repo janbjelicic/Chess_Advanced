@@ -1,0 +1,16 @@
+﻿<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @if (Request.IsAuthenticated)
+        {
+            <li>@Html.ActionLink(Resources.Problems, "Index", "Position")</li>
+            <li>@Html.ActionLink(Resources.Matches, "Index", "Match")</li>
+        }
+        <li>@Html.ActionLink(Resources.FamousGames, "Famous", "Match")</li>
+        <li>@Html.ActionLink(Resources.Openings, "Openings", "Game")</li>
+        <li>@Html.ActionLink(Resources.Strategies, "Strategies", "Game")</li>
+        <li>@Html.ActionLink(Resources.Endings, "Endings", "Game")</li>
+        <li>@Html.ActionLink(Resources.History, "History", "Home")</li>
+        <li>@Html.ActionLink(Resources.Cites, "Cites", "Home")</li>
+    </ul>
+    @Html.Partial("_LoginPartial")
+</div>

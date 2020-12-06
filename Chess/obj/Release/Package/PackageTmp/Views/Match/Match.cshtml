@@ -1,0 +1,43 @@
+﻿@model Chess.Domain.Entities.Match
+
+@{
+    ViewBag.Title = Resources.Matches;
+    var time = string.Format("{0:00}:{1:00}", ViewBag.Seconds / 60, (ViewBag.Seconds + ViewBag.Gain) % 60);
+}
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+<div class="row">
+    <div class="col-md-5">
+        <div id="match-board">
+            <div id="board-play"></div>
+        </div>
+        <div id="important-match-data">
+            @Html.HiddenFor(x => x.White.ID, new { id = "white-id" })
+            @Html.HiddenFor(x => x.Black.ID, new { id = "black-id" })
+            @Html.HiddenFor(x => x.IsRated, new { id = "is-rated" })
+            <input type="hidden" value="" id="pieces-played" />
+            <input type="hidden" value="@ViewBag.Seconds" id="match-time" />
+            <input type="hidden" value="@ViewBag.Gain" id="match-gain" />
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="text-center">
+            <h4>@Model.White.UserName (@Model.White.PlayingRating) - @Model.Black.UserName (@Model.Black.PlayingRating)</h4>
+            <span id="white-time">
+                @Html.Raw(time) 
+            </span>            
+            <span id="black-time">
+                @Html.Raw(time)
+            </span>
+            <hr />
+            <p><span id="pgn"></span></p>
+            <p><span id="result"></span></p>
+            <input id="draw-btn" class="btn btn-default" type="button" value=@Resources.Draw />
+            <input id="resign-btn" class="btn btn-default" type="button" value=@Resources.Resign />
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/timer.js")
+    @Scripts.Render("~/bundles/chess")
+    @Scripts.Render("~/Scripts/Match/play.js")
+}

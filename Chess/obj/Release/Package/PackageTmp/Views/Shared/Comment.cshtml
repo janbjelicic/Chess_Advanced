@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Chess.Domain.Entities.Comment>
+
+<div id="comments">
+    @foreach (var comment in Model)
+    {
+        <hr />
+        <div class="text-left">
+            @Html.Raw(comment.User.UserName), @Html.Raw(comment.DateCreated)
+            @if (comment.User.ID == WebSecurity.CurrentUserId)
+            {
+                <div class="pull-right">
+                    @using (Ajax.BeginForm("DeleteComment", new { commentId = comment.ID }, 
+                        new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId="comments" }))
+                    {
+                        <input type="image" class="comment-delete-image" src="~/Images/Buttons/delete.png" />
+                    }
+                </div>
+            }
+        </div>
+        <div class="text-center">
+            <p>@Html.Raw(comment.Content)</p>
+        </div>
+    }
+</div>

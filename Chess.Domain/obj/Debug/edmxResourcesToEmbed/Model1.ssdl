@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChessModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Position_ID" Type="int" />
+    <Property Name="Match_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="PiecePositions" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matches">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="Result" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="IsPlayed" Type="bit" Nullable="false" />
+    <Property Name="IsRated" Type="bit" Nullable="false" />
+    <Property Name="User_ID" Type="int" />
+    <Property Name="Black_ID" Type="int" />
+    <Property Name="White_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Moves">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Piece" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MoveNumber" Type="int" Nullable="false" />
+    <Property Name="WhitePlayed" Type="bit" Nullable="false" />
+    <Property Name="Position_ID" Type="int" />
+    <Property Name="Match_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Positions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="PiecePositions" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="WhiteIsPlaying" Type="bit" Nullable="false" />
+    <Property Name="Difficulty" Type="int" Nullable="false" />
+    <Property Name="Category" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfiles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="50" />
+    <Property Name="PlayingRating" Type="int" Nullable="false" />
+    <Property Name="ProblemRating" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="IsRated" Type="bit" Nullable="false" />
+    <Property Name="RatingFrom" Type="int" Nullable="false" />
+    <Property Name="RatingTo" Type="int" Nullable="false" />
+    <Property Name="Minutes" Type="int" Nullable="false" />
+    <Property Name="Gain" Type="int" Nullable="false" />
+    <Property Name="CultureInfo" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="UserSolution">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrentMove" Type="int" Nullable="false" />
+    <Property Name="NumberOfAttempts" Type="int" Nullable="false" />
+    <Property Name="IsSolved" Type="bit" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ProblemID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Match_Black">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Black_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_Comments">
+    <End Role="Matches" Type="Self.Matches" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_Moves">
+    <End Role="Matches" Type="Self.Matches" Multiplicity="0..1" />
+    <End Role="Moves" Type="Self.Moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matches">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Moves">
+        <PropertyRef Name="Match_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Match_White">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="White_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_Comments">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Position_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_Solution">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+    <End Role="Moves" Type="Self.Moves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Moves">
+        <PropertyRef Name="Position_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Position_UserSolutions">
+    <End Role="Positions" Type="Self.Positions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSolution" Type="Self.UserSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Positions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserSolution">
+        <PropertyRef Name="ProblemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Comments">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Matches">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Matches" Type="Self.Matches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSolution_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSolution" Type="Self.UserSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserSolution">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChessModelStoreContainer">
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matches" EntityType="Self.Matches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Moves" EntityType="Self.Moves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSolution" EntityType="Self.UserSolution" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Match_Black" Association="Self.Match_Black">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="Match_Comments" Association="Self.Match_Comments">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Match_Moves" Association="Self.Match_Moves">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Moves" EntitySet="Moves" />
+    </AssociationSet>
+    <AssociationSet Name="Match_White" Association="Self.Match_White">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="Position_Comments" Association="Self.Position_Comments">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="Position_Solution" Association="Self.Position_Solution">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="Moves" EntitySet="Moves" />
+    </AssociationSet>
+    <AssociationSet Name="Position_UserSolutions" Association="Self.Position_UserSolutions">
+      <End Role="Positions" EntitySet="Positions" />
+      <End Role="UserSolution" EntitySet="UserSolution" />
+    </AssociationSet>
+    <AssociationSet Name="User_Comments" Association="Self.User_Comments">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="User_Matches" Association="Self.User_Matches">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Matches" EntitySet="Matches" />
+    </AssociationSet>
+    <AssociationSet Name="UserSolution_User" Association="Self.UserSolution_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserSolution" EntitySet="UserSolution" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

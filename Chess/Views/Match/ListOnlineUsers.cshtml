@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Chess.Models.ViewModels.MatchViewModels.IndexViewModel>
+
+<h3>
+    @Resources.Online
+</h3>
+<hr />
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().User.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().User.PlayingRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().User.ProblemRating)
+            </th>
+            <th>
+                @Resources.Challenge
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.PlayingRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.ProblemRating)
+                </td>
+                <td>
+                    @Html.ActionLink(Resources.Play, "Match",
+                new { white = WebSecurity.CurrentUserId, black = item.User.ID, minutes = item.User.Minutes, gain = item.User.Gain, identifier = item.Identifier },
+          htmlAttributes: new { @class = "play-link btn btn-default", white = WebSecurity.CurrentUserId, black = item.User.ID, minutes = item.User.Minutes, gain = item.User.Gain, identifier = item.Identifier })
+                </td>
+            </tr>
+        }
+    </table>
+}

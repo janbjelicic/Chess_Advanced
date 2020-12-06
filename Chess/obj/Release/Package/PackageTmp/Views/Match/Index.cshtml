@@ -1,0 +1,69 @@
+﻿@model Chess.Domain.Entities.User
+
+@{
+    ViewBag.Title = Resources.Matches;
+    var currentUserId = WebSecurity.CurrentUserId;
+}
+<div class="row">
+    <div class="col-md-6" id="filter-form">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <h3>
+                    @Resources.Filter
+                </h3>
+                <hr />
+                <input type="hidden" value="@currentUserId" id="user-id"/>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RatingFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.RatingFrom, new { id = "rating-from-editor", htmlAttributes = new { @class = "form-control" } }) -
+                        @Html.TextBoxFor(model => model.RatingTo, new { id = "rating-to-editor", htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RatingFrom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Minutes, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Minutes, new { id = "minutes-editor", htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Minutes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gain, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Gain, new { id = "gain-editor", htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Gain, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.IsRated, new { id = "is-rated-editor" })
+                            @Html.LabelFor(m => m.IsRated)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <input type="submit" class="btn btn-default" value=@Resources.Save />
+                        <input id="filter-button" class="btn btn-default" type="submit" value=@Resources.Filter />
+                        <input id="reset-button" class="btn btn-default" type="button" value=@Resources.Reset />
+                    </div>
+                </div>
+                Number of connected players:  <span id="amountOfClients">0</span><br />
+            </div>
+        }
+    </div>
+    <div class="col-md-6" id="online-users-table">
+        @Html.Action("ListOnlineUsers")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/Match/filter.js")
+    @Scripts.Render("~/Scripts/jquery.signalR-2.2.0.min.js")
+    @Scripts.Render("~/signalr/hubs")
+    @Scripts.Render("~/Scripts/Match/users.js")
+}

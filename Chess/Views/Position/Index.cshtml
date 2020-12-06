@@ -1,0 +1,93 @@
+﻿@model Chess.Models.ViewModels.PositionViewModels.IndexViewModel
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = Resources.Problems;
+}
+
+@if (Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+{
+    <p>
+        @Html.ActionLink(Resources.CreateNewProblem, "Create", new { }, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @using (Html.BeginForm("Index", "Position"))
+        {
+        <div class="form-horizontal">
+            <h4>@Resources.Filter</h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Difficulty, htmlAttributes: new { @class = "col-md-4" })
+                <div class="col-md-5">
+                    @Html.DropDownList("Filter.Difficulty", (SelectList)ViewBag.Difficulties)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Category, htmlAttributes: new { @class = "col-md-4" })
+                <div class="col-md-5">
+                    @Html.DropDownList("Filter.Category", (SelectList)ViewBag.Categories)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.Solved, htmlAttributes: new { @class = "col-md-4" })
+                <div class="col-md-5">
+                    @Html.DropDownList("Filter.Solved", (SelectList)ViewBag.Bools)
+                </div>
+            </div>
+            <h4>@Resources.OrderBy</h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.SolvedTimes, htmlAttributes: new { @class = "col-md-4" })
+                <div class="col-md-5">
+                    @Html.DropDownList("Filter.SolvedTimes", (SelectList)ViewBag.Orders)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Filter.SuccessRate, htmlAttributes: new { @class = "col-md-4" })
+                <div class="col-md-5">
+                    @Html.DropDownList("Filter.SuccessRate", (SelectList)ViewBag.Orders)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <input type="submit" id="btn-create-position" class="btn btn-default" value="@Resources.Filter" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="col-md-9">
+        @foreach (var position in Model.Positions)
+        {
+            <div class="problem-single">
+                <span class="problem-name">@Html.ActionLink(position.Name, "Solve", new { id = position.ID })</span>
+                <span class="problem-images">
+                    @if (position.IsSolved)
+                    {
+                        <img class="problem-image" alt="solved" src="~/Images/solved.png" />
+                    }
+                    @if (Request.IsAuthenticated && Roles.IsUserInRole(Chess.Domain.Entities.UserRoles.Administrator.ToString()))
+                    {
+                        <a href='@Url.Action("Edit", "Position", new { id = position.ID })'>
+                            <img class="problem-image" alt="edit" src="~/Images/Buttons/edit.png" />
+                        </a>
+                        <a href='@Url.Action("Delete", "Position", new { id = position.ID })'>
+                            <img class="problem-image" alt="delete" src="~/Images/Buttons/delete.png" />
+                           </a>
+                    }
+                </span>
+                <br />
+
+                <span><span class="problem-data-content">@Resources.SuccessRate: </span><span class="problem-data-data">@position.Rate%</span></span>
+                <span class="problem-data"><span class="problem-data-content">@Resources.Difficulty: </span><span class="problem-data-data">@position.Difficulty</span></span>
+                <span class="problem-data"><span class="problem-data-content">@Resources.Category: </span><span class="problem-data-data">@position.Category</span></span>
+                <span class="problem-data"><span class="problem-data-content">@Resources.Solved: </span><span class="problem-data-data">@position.Solved @Resources.Times</span></span>
+            </div>
+        }
+        Page @(Model.Positions.PageCount < Model.Positions.PageNumber ? 0 : Model.Positions.PageNumber) of @Model.Positions.PageCount
+        @Html.PagedListPager(Model.Positions, page => Url.Action("Index", new { page, filter = Model.Filter }))
+    </div>
+</div>

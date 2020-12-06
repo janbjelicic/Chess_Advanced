@@ -1,0 +1,62 @@
+﻿@model Chess.Domain.Entities.Match
+
+@{
+    ViewBag.Title = "ViewMatch";
+}
+
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+
+<input id="match-identifier" type="hidden" value="@Model.ID" />
+<input id="move-number" type="hidden" value="0" />
+<input id="moves" type="hidden" value="@ViewBag.Moves" />
+<div class="row">
+    <div class="col-md-5">
+        <div id="board-view"></div>
+        <div class="text-center">
+            <button id="game-start-btn" type="submit"><img class="board-button-image" src="~/Images/Buttons/begin.png"></button>
+            <button id="one-move-behind-btn" type="submit"><img class="board-button-image" src="~/Images/Buttons/one back.png"></button>
+            <button id="one-move-forward-btn" type="submit"><img class="board-button-image" src="~/Images/Buttons/one forward.png"></button>
+            <button id="game-end-btn" type="submit"><img class="board-button-image" src="~/Images/Buttons/end.png"></button>
+        </div>
+    </div>
+    <div class="col-md-push-1 col-md-6">
+        <h3>
+            @Model.Description
+        </h3>
+        <hr />
+        <p>
+            @for (int i = 0; i < Model.Moves.Count(); i += 2)
+            {
+                var nextTwoMoves = " " + Model.Moves[i].MoveNumber + ". " + Model.Moves[i].Content;
+                if ((i + 1) != Model.Moves.Count())
+                {
+                    nextTwoMoves += " " + Model.Moves[i + 1].Content;
+                }
+                @Html.Raw(nextTwoMoves)
+            }
+        </p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <h4>
+            @Resources.Comments
+        </h4>
+
+        @Html.TextArea("text", new { rows = 5, cols = 50, id = "comment-box" })
+        <br /><br />
+        <div class="text-right">
+            <input type="submit" id="btn-add-comment" class="btn btn-primary" value="@Resources.Comment" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    @{ Html.RenderPartial("Comment", Model.Comments); }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/chess")
+    @Scripts.Render("~/Scripts/Match/view.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

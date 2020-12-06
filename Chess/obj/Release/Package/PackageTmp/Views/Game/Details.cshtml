@@ -1,0 +1,26 @@
+﻿@model Chess.Domain.Entities.Game
+
+@{
+    ViewBag.Title = Resources.Details;
+}
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<div class="row">
+    <div class="col-md-5">
+        <div id="board-game"></div>
+    </div>
+    <div class="col-md-7">
+        @Html.DisplayFor(model => model.Description)
+        @Html.HiddenFor(x => x.PiecePositions, htmlAttributes: new { id = "piece-positions-form-details" })
+    </div>
+</div>
+<div>
+    @Html.ActionLink(Resources.BackToList, (string)ViewBag.ReturnUrl)
+</div>
+@section Scripts {
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/chessboard.min.js")
+    @Scripts.Render("~/Scripts/Game/details.js")
+}
+
+

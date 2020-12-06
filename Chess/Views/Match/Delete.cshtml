@@ -1,0 +1,20 @@
+﻿@model Chess.Domain.Entities.Match
+
+@{
+    ViewBag.Title = Resources.Delete;
+    var message = string.Format(Resources.AreYouSureYouWantToDeleteThis, Model.Description);
+}
+
+<h3>@message</h3>
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@Resources.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(Resources.BackToList, "Famous")
+        </div>
+    }
+</div>

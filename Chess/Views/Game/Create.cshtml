@@ -1,0 +1,73 @@
+﻿@model Chess.Domain.Entities.Game
+
+@{
+    ViewBag.Title = Resources.CreateNewGame;
+}
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+
+@using (Html.BeginForm("Create", "Game", new { returnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-5">
+            <div id="board-game"></div>
+            <p class="text-center">
+                <input type="button" class="btn btn-default" id="btn-create-game-start" value="@Resources.Start" />
+                <input type="button" class="btn btn-default" id="btn-create-game-clear" value="@Resources.Clear" />
+            </p>
+        </div>
+        <div class="col-md-7">
+            <div class="form-horizontal">
+                <h4>@Resources.NewGame</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Type", (SelectList)ViewBag.Types)
+                    </div>
+                </div>
+
+                @Html.HiddenFor(x => x.PiecePositions, htmlAttributes: new { id = "piece-positions-form-create" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="submit" id="btn-create-new-game" class="btn btn-primary" value="@Resources.Create" />
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink(Resources.BackToList, (string)ViewBag.ReturnUrl)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/chessboard.min.js")
+    @Scripts.Render("~/Scripts/Game/create.js")
+}

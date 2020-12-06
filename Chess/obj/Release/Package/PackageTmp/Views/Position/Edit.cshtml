@@ -1,0 +1,91 @@
+﻿@model Chess.Models.ViewModels.PositionViewModels.PositionViewModel
+
+@{
+    ViewBag.Title = Resources.Edit;
+}
+@Styles.Render("~/Infrastructure/ChessBoard/css/chessboard.min.css")
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-5">
+            <div id="board-problem"></div>
+            <div class="text-center">
+                <input type="button" id="start-btn" class="btn btn-default" value="@Resources.Start" />
+                <input type="button" id="clear-btn" class="btn btn-default" value="@Resources.Clear" />
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="form-horizontal">
+                <h4>@Resources.EditProblem</h4>
+                <hr />
+                @Html.HiddenFor(model => model.ID)
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Solution, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        @Html.TextAreaFor(model => model.Solution, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Solution, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Difficulty, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Difficulty", (SelectList)ViewBag.Difficulties)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Category", (SelectList)ViewBag.Categories)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.WhiteIsPlaying)
+                            @Html.LabelFor(m => m.WhiteIsPlaying)
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(m => m.PiecePositions, htmlAttributes: new { id = "piece-positions-form-update" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="submit" id="btn-update-position" class="btn btn-primary" value="@Resources.Save" />
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Infrastructure/ChessBoard/js/chessboard.min.js")
+    @Scripts.Render("~/Scripts/Position/update.js")
+}
